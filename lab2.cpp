@@ -5,24 +5,42 @@
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "Russian");
-    cout << "Введите количество чисел массива n: ";
+
+    cout << "Enter the number of numbers in the array n: ";
     int n, left, right;
     cin >> n;
     cout << endl;
 
-    cout << "Введите через пробел левую и правую границы массива: ";
+    cout << "Enter the left and right boundaries of the array separated by a space: ";
     cin >> left >> right;
 
     int* a = new int[n];
     cout << endl;
-    cout << "Исходный масссив: ";
+    cout << "First array: ";
 
     for (int i = 0; i < n; i++) {
         a[i] = rand() % (right - left + 1) + left;
         cout << a[i] << " ";
     }
 
+    cout << endl;
+    // Задание 1
+    int newSize = 1;
+    int* newArr = new int[n];
+
+    newArr[0] = a[0];
+
+    for (int i = 1; i < n; i++) {
+        if (a[i] > newArr[newSize - 1]) {
+            newArr[newSize] = a[i];
+            newSize++;
+        }
+    }
+    cout << endl;
+    cout << "1)New array:";
+    for (int i = 0; i < newSize; i++) {
+        cout << newArr[i] << " ";
+    }
     cout << endl;
 
     //Задание 2
@@ -51,8 +69,8 @@ int main() {
 
     for (int i = min1; i <= max1; i++)
         pr *= a[i];
-
-    cout << "2) произведение элементов массива, расположенных между последним макс. и мин. элементами " << pr << endl;
+    
+    cout << "2) product of array elements located between the last max. and min. elements: " << pr << endl;
 
     // Задание 3
 
@@ -66,7 +84,7 @@ int main() {
 
     cout << endl;
 
-    cout << "3) Новый массив: ";
+    cout << "3) New array: ";
     for (int i = 0; i < n; i++) {
         if (i % 2 == 0) {
             cout << chet[i / 2] << " ";
