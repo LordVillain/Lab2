@@ -26,7 +26,7 @@ int main() {
     cout << endl;
     // Задание 1
     int newSize = 1;
-    int* newArr = new int[n];
+    double* newArr = new double[n];
 
     newArr[0] = a[0];
 
